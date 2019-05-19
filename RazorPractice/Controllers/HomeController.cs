@@ -9,7 +9,7 @@ namespace RazorPractice.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+        public IActionResult Index()
         {
             Product myProduct = new Product
             {
@@ -19,7 +19,14 @@ namespace RazorPractice.Controllers
                 Description = "One man bolt",
                 Price = 275M
             };
-            return View(myProduct);
+            Product[] array =
+            {
+                new Product { Name = "Kayak", Price = 275M },
+                new Product { Name = "Life jacket", Price = 48.95M },
+                new Product { Name = "Football", Price = 19.50M },
+                new Product { Name = "Flag", Price = 34.95M}
+            };
+            return View(array);
         }
     }
 }
